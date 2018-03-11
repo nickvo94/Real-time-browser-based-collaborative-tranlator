@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <h1 style="text-align: center">Web Speech API</h1>
+    <script>
+        (function (e, p) {
+            var m = location.href.match(/platform=(win8|win|mac|linux|cros)/);
+            e.id = (m && m[1]) ||
+                (p.indexOf('Windows NT 6.2') > -1 ? 'win8' : p.indexOf('Windows') > -1 ? 'win' : p.indexOf('Mac') > -1 ? 'mac' : p.indexOf('CrOS') > -1 ? 'cros' : 'linux');
+            e.className = e.className.replace(/\bno-js\b/, 'js');
+        })(document.documentElement, window.navigator.userAgent)
+    </script>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+    <meta content="Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier."
+          name="description">
+    <title>
+        Chrome Browser
+    </title>
+    <link href="https://plus.google.com/100585555255542998765" rel="publisher">
+    <link href="https://www.google.com/images/icons/product/chrome-32.png" rel="icon" type="image/ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+    <link href="https://google.com/intl/en/chrome/assets/common/css/chrome.min.css" rel="stylesheet">
+    <script src="https://www.google.com/js/gweb/analytics/autotrack.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src=https://cdn.pubnub.com/sdk/javascript/pubnub.4.0.11.min.js></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/~hieuv/API_labs/GTransTrial/GTranslate/css/test.css">
+    <link rel="stylesheet" type="text/css" href="/~hieuv/API_labs/GTransTrial/GTranslate/css/WebSpeech.css">
+    <base href="/">
+    <script>
+        new gweb.analytics.AutoTrack({
+            profile: 'UA-26908291-1'
+        });
+    </script>
+    <script src="https://google.com/intl/en/chrome/assets/common/js/chrome.min.js"></script>
+</head>
+<body id="grid">
+    <div>
+        <div align="center"><input type="text" name="username" id="username" placeholder="Your name"></div>
+        <div align="center" id="modeId" >Mode : 
+            <select id="modeSelect">
+                <option value="1" selected>Manual</option>
+                <option value="2">Automatic</option>
+                <option value="3">Mobile</option>
+            </select>
+        </div>       
+    </div>
+    
+    <div style="width:100%; height:100%; overflow-y: scroll">
+        <div style="width:50%; position: absolute; height:50%;">
+            <div class="browser-landing" id="main">
+                <div class="compact marquee-stacked" id="marquee">
+                    <div class="marquee-copy">
+                    </div>
+                </div>
+                <div class="compact marquee">
+                    <div id="info">
+                    </div>
+                    <div class="compact marquee" id="div_language">
+                        <select id="select_language" onchange="updateCountry()"></select>&nbsp;&nbsp; <select id="select_dialect"></select>
+                    </div>
+                    <div id="div_start">
+                        <button class="start" id="start_button" onclick="startButton(event)">
+                            <img alt="Start" id="start_img"
+                                 src="https://google.com/intl/en/chrome/assets/common/images/content/mic.gif">
+                        </button>
+                    </div>
+                    <div id="results" style="height:100px; overflow-y: auto;">
+                        <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="wrapper" style="position: absolute; width:50%; height:50%; top:140px; right:0px;">
+            <div class="container">
+                <div class="col">
+                    <select class="target-lang">
+                        <option selected disabled>Target language</option>
+                    </select>
+                    <button id="button" style="position:relative; margin: 20px 0;">Send Translation</button>
+                    <br>
+                </div>
+
+                <div class="col" style="height:100px; overflow-y: auto;">
+                    <h2 class="translation-heading">Translation</h2>
+                    <div id="target" class="target"></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="position: absolute; width: 100%; height:35%; bottom:10px; margin-left:10px; ">
+            <div>
+                <div id="channel" style="font-size:larger ; right:100px">Chat room (channel) : </div>
+            </div>                    
+            
+            <div style="background-color: lightblue; width:100%; height: 200px; overflow-y: auto; position: absolute;">
+                <div id="display_string"></div>
+                <div id="bottom"></div>
+            </div>
+        </div>
+
+        <script src="/~hieuv/API_labs/GTransTrial/GTranslate/javascript/WebSpeech.js"></script>
+        <script src="/~hieuv/API_labs/GTransTrial/GTranslate/javascript/lang&function.js"></script>
+        <script type="text/javascript" src="/~hieuv/API_labs/GTransTrial/GTranslate/javascript/test1.js"></script>
+        <script src="/~hieuv/API_labs/GTransTrial/GTranslate/javascript/PubNub1.js"></script>
+
+    </div>
+    
+</body>

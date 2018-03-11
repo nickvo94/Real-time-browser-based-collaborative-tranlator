@@ -1,0 +1,70 @@
+// Styling for CodePen Example
+*{
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  margin: 10px auto;
+  background: rgb(255, 255, 255);
+  padding: 10px 10px;
+  border-radius: 10px;
+  text-align: center;
+  
+  .col {
+    display: inline-block;
+    width: 46%;
+    margin: 0 1%;
+    vertical-align: top;
+  }
+  
+  div.scroll{
+    background-color: lightblue;
+    width: 500px;
+    height: 800px;
+    overflow: scroll;
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  select {
+    width: 49%;
+    margin-top: 10px;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    
+    &.translate {
+      background: green;
+    }
+    &.detect {
+      background: blue;
+    }
+  }
+  
+  h2 {
+    display: none;
+    margin: 0;
+  }
+  
+  p.target {
+    display: none;
+    margin-top: 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+
+}
