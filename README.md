@@ -23,5 +23,7 @@
 
 7) Press send only if you are in the manual mode, other 2 modes will be automatically sending to chat box.
 
+![alt text](https://github.com/perseus0832/Real-time-browser-based-collaborative-tranlator/blob/master/Final_project_presentation.png)
+
  
 
