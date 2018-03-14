@@ -2,12 +2,12 @@
 
 ## MASHUP PROJECT
 
-. Main file
+### Main file
 - Main html: test1.html
 - Main javascrip: test1.js , PubNub1.js, lang&function.js, WebSpeech.js
 - Main css: test.css, WebSpeech.css
 
-.Instruction: 
+### Instruction: 
 
 1) Enter the channel key (any key but not leave it empty)
 
